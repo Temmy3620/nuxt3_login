@@ -1,6 +1,6 @@
 #!/bin/sh
  
-rm -rf package-lock.json node_modules
+rm -rf package-lock.json
  
 # パッケージのインストール
 npm i
