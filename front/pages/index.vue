@@ -17,11 +17,16 @@ const addTask = (taskName: string) => {
 const completeTask = (newTaskNameList: string[]) => {
   taskNameList.value = newTaskNameList;
 }
-const fetchData = async (taskName: string) => {
-  await useFetch('http://localhost:8000/api/tests', {
+const fetchData = async (task: string) => {
+  const response = await $fetch('http://localhost:8000/api/tests', {
     method: 'POST',
-    body: taskName,
+    body: JSON.stringify({ task: task }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    
   });
+  console.log(response);
 };
 
 </script>
