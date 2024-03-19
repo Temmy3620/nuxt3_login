@@ -24,10 +24,10 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //$test = Test::create($request->all());
+        $test = Test::create($request->all());
         return response()->json([
             'message' => 'Test created successfully',
-            'data' => 'sdjvks',
+            'data' => $test,
         ], 200, [], JSON_UNESCAPED_UNICODE);
     }
 
