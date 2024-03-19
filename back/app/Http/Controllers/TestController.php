@@ -12,10 +12,10 @@ class TestController extends Controller
      */
     public function index()
     {
-        
+        $test = Test::all();
         return response()->json([
             'message' => 'Test created successfully',
-            'data' => 'sdjvks',
+            'data' => $test,
         ], 201, [], JSON_UNESCAPED_UNICODE);
     }
 
