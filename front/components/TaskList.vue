@@ -8,6 +8,10 @@
 </template>
 
 <script setup lang="ts">
+    import { TestService } from '@/composables/test'
+
+    const testService = new TestService();
+
     interface Props {
         taskNameList: string[]
     }

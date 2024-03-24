@@ -18,6 +18,7 @@ const taskNameList = ref<string[]>([]);
 
 const addTask = (taskName: string) => {
   taskNameList.value.push(taskName);
+  console.log(taskNameList);
   
   testService.putData(taskName);
   
