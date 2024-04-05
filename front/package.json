@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "vite-plugin-vuetify": "^2.0.3",
+    "vue-i18n": "^9.11.0",
     "vuetify": "^3.5.13"
   }
 }

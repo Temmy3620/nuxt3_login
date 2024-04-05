@@ -36,6 +36,12 @@
                 <v-btn density="compact">6</v-btn>
             </NuxtLink>
         </v-col>
+
+        <v-col cols="auto">
+            <NuxtLink to="/componentTest3">
+                <v-btn density="compact">7</v-btn>
+            </NuxtLink>
+        </v-col>
     </v-row>
     
     <div>
