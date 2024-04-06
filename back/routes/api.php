@@ -17,3 +17,4 @@ Route::get('/check', function(Request $request){
 });
 
 Route::apiResource('/tests', 'App\Http\Controllers\TestController');
+Route::apiResource('/users', 'App\Http\Controllers\UserController');

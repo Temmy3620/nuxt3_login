@@ -42,6 +42,12 @@
                 <v-btn density="compact">7</v-btn>
             </NuxtLink>
         </v-col>
+
+        <v-col cols="auto">
+            <NuxtLink to="/users">
+                <v-btn density="compact">users</v-btn>
+            </NuxtLink>
+        </v-col>
     </v-row>
     
     <div>
