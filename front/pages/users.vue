@@ -1,8 +1,6 @@
 <template>
 
-    
-        
-    <v-container>
+    <v-container class="mt-10">
         <v-row>
             <v-col cols="3">
                 <div class="d-flex flex-column mt-15">
@@ -44,23 +42,28 @@
                         { title: 'E-mail', value: 'email' },
                         { title: 'Created_at', value: 'created_at' },
                     ]"
-                ></v-data-table>
+                >
+                <template v-slot:item.created_at="{ value }">
+                    {{ dayjs(value).tz('Asia/Tokyo').format('YYYY-MM-DD HH:mm:ss') }}
+                </template>
+                </v-data-table>
             </v-col>
         </v-row>
     </v-container>
-    
-    
-    
-    
     
 </template>
 
 <script setup lang="ts">
     import { UserService } from '@/composables/user'
     import { ref } from 'vue'
+    
+    import dayjs from 'dayjs'
+    import utc from 'dayjs/plugin/utc'
+    import timezone from 'dayjs/plugin/timezone'
+    dayjs.extend(utc)
+    dayjs.extend(timezone)
   
     const userService = new UserService()
-    
 
     interface Item {
         id: string;
@@ -96,6 +99,4 @@
          
     }
     
-    
-
 </script>

@@ -2,6 +2,9 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
+  modules: [
+    'dayjs-nuxt'
+  ],
   
   components: [{
     path: '~/components/',
@@ -43,7 +46,6 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }))
       })
     },
-    //...
   ],
   vite: {
     vue: {
