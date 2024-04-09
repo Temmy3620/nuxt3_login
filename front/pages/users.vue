@@ -41,10 +41,25 @@
                         { title: 'NAME', value: 'name' },
                         { title: 'E-mail', value: 'email' },
                         { title: 'Created_at', value: 'created_at' },
+                        { title: '', key: 'actions' },
                     ]"
                 >
                 <template v-slot:item.created_at="{ value }">
                     {{ dayjs(value).tz('Asia/Tokyo').format('YYYY-MM-DD HH:mm:ss') }}
+                </template>
+                <template v-slot:item.actions="{ item }">
+                  <v-icon
+                    class="me-2"
+                    size="small"
+                  >
+                    mdi-pencil
+                  </v-icon>
+                  <v-icon
+                    size="small"
+                    @click="deleteDataItem(item)"
+                  >
+                    mdi-delete
+                  </v-icon>
                 </template>
                 </v-data-table>
             </v-col>
@@ -88,7 +103,7 @@
         
         newItem.value = { name: '', email: '', password: '' }
 
-    };
+    }
 
     
     async function fetchDataItem() {
@@ -98,5 +113,15 @@
       });
          
     }
+
+    async function deleteDataItem(item: Item){
+        userService.deleteData(item.id)
+        let index =items.value.findIndex(i => i.id === item.id)
+        if (index !== -1) {
+            items.value.splice(index, 1);
+        }
+
+    }
+
     
 </script>
