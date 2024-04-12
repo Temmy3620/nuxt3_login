@@ -1,5 +1,15 @@
 <template>
-
+    <v-dialog v-model="dialogDelete" max-width="500px">
+        <v-card>
+        <v-card-title class="text-h5">Let's delete this item?</v-card-title>
+        <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="blue-darken-1" variant="text" @click="closeDelete">Cancel</v-btn>
+            <v-btn color="blue-darken-1" variant="text" @click="deleteDataItem">OK</v-btn>
+            <v-spacer></v-spacer>
+        </v-card-actions>
+        </v-card>
+    </v-dialog>
     <v-container class="mt-10">
         <v-row>
             <v-col cols="3">
@@ -56,7 +66,7 @@
                   </v-icon>
                   <v-icon
                     size="small"
-                    @click="deleteDataItem(item)"
+                    @click="deleteItemConfirm(item)"
                   >
                     mdi-delete
                   </v-icon>
@@ -80,6 +90,9 @@
   
     const userService = new UserService()
 
+    const dialog = ref(false)
+    const dialogDelete = ref(false)
+
     interface Item {
         id: string;
         name: string;
@@ -87,6 +100,8 @@
     }
 
     const items = ref<Item[]>([])
+
+    let deleteData: Item;
 
     const newItem = ref({
         name: '',
@@ -114,13 +129,23 @@
          
     }
 
-    async function deleteDataItem(item: Item){
-        userService.deleteData(item.id)
-        let index =items.value.findIndex(i => i.id === item.id)
+    function deleteItemConfirm(item: Item){
+        dialogDelete.value = true
+        deleteData = item
+    }
+
+    async function deleteDataItem(){
+        userService.deleteData(deleteData.id)
+        let index =items.value.findIndex(i => i.id === deleteData.id)
         if (index !== -1) {
             items.value.splice(index, 1);
         }
+        dialogDelete.value = false
 
+    }
+
+    function closeDelete(){
+        dialogDelete.value = false
     }
 
     
