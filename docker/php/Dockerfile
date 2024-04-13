@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.3.6-fpm
 ENV TZ Asia/Tokyo
 
 RUN apt-get update && apt-get install -y \
