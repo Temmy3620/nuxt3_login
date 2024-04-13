@@ -8,6 +8,18 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/check', function(Request $request){
+    $apiKey = $request->header('Api-Key');
+
+    $validApiKey = config('api.key');
+
+    if ($apiKey !== $validApiKey) {
+        return response()->json([
+            'status' => false,
+            'message' => 'Invalid API Key'
+        ], 401); // 401 Unauthorized status code
+    }
+
+
     return response()->json([
         'status' => true,
         'message' => "Product Created successfully!",

@@ -6,6 +6,7 @@ export class TestService {
             body: JSON.stringify({ task: task }),
             headers: {
             'Content-Type': 'application/json',
+            'Api-Key': 'snvklsdnvksdvsdjhvnqkwjenvkj',
             },
             
         });
@@ -13,7 +14,12 @@ export class TestService {
     };
         
     async fetchData(){
-        const data = await $fetch('http://localhost:8080/api/tests');
+        const data = await $fetch('http://localhost:8080/api/tests',{
+            headers: {
+                'Content-Type': 'application/json',
+                'Api-Key': 'snvklsdnvksdvsdjhvnqkwjenvkj',
+            },
+        });
         console.log(data.data);
     };
 

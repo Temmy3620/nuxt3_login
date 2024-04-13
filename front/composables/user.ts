@@ -6,6 +6,7 @@ export class UserService {
             body: JSON.stringify(user),
             headers: {
             'Content-Type': 'application/json',
+            'Api-Key': 'snvklsdnvksdvsdjhvnqkwjenvkj',
             },
             
         })
@@ -14,7 +15,12 @@ export class UserService {
     }
         
     async fetchData(){
-        const data = await $fetch(`http://localhost:8080/api/users`);
+        const data = await $fetch(`http://localhost:8080/api/users`,{
+            headers: {
+                'Content-Type': 'application/json',
+                'Api-Key': 'snvklsdnvksdvsdjhvnqkwjenvkj',
+            },
+        })
         return data.data
     }
 
@@ -24,6 +30,7 @@ export class UserService {
             method: 'DELETE',
             headers: {
             'Content-Type': 'application/json',
+            'Api-Key': 'snvklsdnvksdvsdjhvnqkwjenvkj',
             },
             
         })
