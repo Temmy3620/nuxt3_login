@@ -28,5 +28,5 @@ Route::get('/check', function(Request $request){
 
 });
 
-Route::apiResource('/tests', 'App\Http\Controllers\TestController');
-Route::apiResource('/users', 'App\Http\Controllers\UserController');
+Route::apiResource('/tests', 'App\Http\Controllers\TestController')->middleware('check');
+Route::apiResource('/users', 'App\Http\Controllers\UserController')->middleware('check');

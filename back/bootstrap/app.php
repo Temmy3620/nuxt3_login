@@ -15,7 +15,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         
-        $middleware->append(CheckApiKey::class);
+        //$middleware->append(CheckApiKey::class);
+        $middleware->alias(['check' => CheckApiKey::class]);
         
         
     })
