@@ -113,7 +113,7 @@
     
     const addItem = () => {
         userService.putData(newItem.value).then(data => {
-            items.value.push(data.data)
+            items.value.unshift(data.data)
         })
         
         newItem.value = { name: '', email: '', password: '' }

@@ -12,7 +12,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        $user = User::orderBy('created_at', 'desc')->get();
         return response()->json([
             'message' => 'Test created successfully',
             'data' => $user,
