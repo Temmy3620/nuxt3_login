@@ -1,3 +1,3 @@
-FROM mysql:8.0
+FROM postgres:16.2
 
-COPY ./docker/db/my.conf /etc/my.conf
+COPY ./docker/db/postgresql.conf /etc/postgresql.conf

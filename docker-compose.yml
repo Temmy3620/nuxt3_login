@@ -48,15 +48,15 @@ services:
       context: .
       dockerfile: ./docker/db/Dockerfile
     ports:
-      - 3307:3306
+      - 5432:5432
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: db_development
-      MYSQL_USER: db-user
-      MYSQL_PASSWORD: password
+      POSTGRES_ROOT_PASSWORD: password
+      POSTGRES_DATABASE: survey_db
+      POSTGRES_USER: db-user
+      POSTGRES_PASSWORD: password
       TZ: 'Asia/Tokyo'
     volumes:
-      - mysql-volume:/var/lib/mysql
+      - db-store:/var/lib/postgresql/data
     networks:
       - bridge
 
@@ -65,4 +65,4 @@ networks:
     driver: bridge
 
 volumes:
-  mysql-volume:
+  db-store:
