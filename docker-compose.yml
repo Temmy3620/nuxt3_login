@@ -51,7 +51,7 @@ services:
       - 5432:5432
     environment:
       POSTGRES_ROOT_PASSWORD: password
-      POSTGRES_DATABASE: survey_db
+      POSTGRES_DATABASE: servey_db
       POSTGRES_USER: db-user
       POSTGRES_PASSWORD: password
       TZ: 'Asia/Tokyo'
