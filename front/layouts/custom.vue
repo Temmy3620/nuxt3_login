@@ -1,62 +1,88 @@
 <template>
+    <v-row justify="start" v-if="authStore.loggedIn == true">
+        <v-col cols="10">
+            <v-sheet elevation="6">
+                <v-tabs
+                bg-color="grey"
+                next-icon="mdi-arrow-right-bold-box-outline"
+                prev-icon="mdi-arrow-left-bold-box-outline"
+                >
+                
+                    <NuxtLink to="/vuetify">
+                        <v-tab
+                        class="text-white"
+                        >
+                            radio
+                        </v-tab>
+                    </NuxtLink>
+                
+                    <NuxtLink to="/todo">
+                        <v-tab
+                        class="text-white"
+                        >
+                            todo
+                        </v-tab>
+                    </NuxtLink>
+            
+                    <NuxtLink to="/price">
+                        <v-tab
+                        class="text-white"
+                        >
+                            memory
+                        </v-tab>
+                    </NuxtLink>
+                                
+                    <NuxtLink to="/test">
+                        <v-tab
+                        class="text-white"
+                        >
+                            dialog
+                        </v-tab>
+                    </NuxtLink>
+                
+                    <NuxtLink to="/componentTest">
+                        <v-tab
+                        class="text-white"
+                        >
+                            select
+                        </v-tab>
+                    </NuxtLink>
+            
+                    <NuxtLink to="/componentTest3">
+                        <v-tab
+                        class="text-white"
+                        >
+                            language
+                        </v-tab>
+                    </NuxtLink>
+                
+                    <NuxtLink to="/users">
+                        <v-tab
+                        class="text-white"
+                        >
+                            users
+                        </v-tab>
+                    </NuxtLink>
 
-    <v-row justify="start" class="ma-2" v-if="authStore.loggedIn == true">
-        <v-col cols="auto">
-            <NuxtLink to="/vuetify">
-                <v-btn density="compact">radio</v-btn>
-            </NuxtLink>
+                    <NuxtLink to="/componentTest2">
+                        <v-tab
+                        class="text-white"
+                        >
+                            tab
+                        </v-tab>
+                    </NuxtLink>
+            
+                </v-tabs>
+            </v-sheet>
         </v-col>
-
-        <v-col cols="auto">
-            <NuxtLink to="/todo">
-                <v-btn density="compact">todo</v-btn>
-            </NuxtLink>
-        </v-col>
-
-        <v-col cols="auto">
-            <NuxtLink to="/price">
-                <v-btn density="compact">maney</v-btn>
-            </NuxtLink>
-        </v-col>
-
-        <v-col cols="auto">
-            <NuxtLink to="/test">
-                <v-btn density="compact">dialog</v-btn>
-            </NuxtLink>
-        </v-col>
-
-        <v-col cols="auto">
-            <NuxtLink to="/componentTest">
-                <v-btn density="compact">select</v-btn>
-            </NuxtLink>
-        </v-col>
-
-        <v-col cols="auto">
-            <NuxtLink to="/componentTest2">
-                <v-btn density="compact">tab</v-btn>
-            </NuxtLink>
-        </v-col>
-
-        <v-col cols="auto">
-            <NuxtLink to="/componentTest3">
-                <v-btn density="compact">language</v-btn>
-            </NuxtLink>
-        </v-col>
-
-        <v-col cols="auto">
-            <NuxtLink to="/users">
-                <v-btn density="compact">users</v-btn>
-            </NuxtLink>
-        </v-col>
-
-        <v-col cols="auto" class="ms-auto">
+        <v-col cols="2" class="d-flex align-end flex-column ms-auto">
             <Logout />
+            <a>user</a>
         </v-col>
-    </v-row>
+    </v-row> 
     
     <div>
-        
-        <!-- named slot -->
+
         <slot />
     </div>
 </template>
