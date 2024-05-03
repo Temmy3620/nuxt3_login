@@ -31,8 +31,7 @@ class AuthController extends Controller
 
         return response()->json([
             'status' => $state,
-            'user' => Auth::attempt($request->only('email', 'password')),
-            'message' => $request->all()
+            'user' => Auth::user()
         ], 401); // 401 Unauthorized status code
         
     }

@@ -53,10 +53,12 @@ export const useLogin = (): UseLoginReturnType => {
         const data = await response.json();
         
         
+        
         authStore.setLoginStatus(true);
         
         accessToken.value = data.access_token;
         refreshToken.value = data.refresh_token;
+
 
         router.push('/users');
         

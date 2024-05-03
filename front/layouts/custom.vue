@@ -77,7 +77,7 @@
         </v-col>
         <v-col cols="2" class="d-flex align-end flex-column ms-auto">
             <Logout />
-            <a>user</a>
+            <a>{{ authStore.UserName.name }}</a>
         </v-col>
     </v-row> 
     
@@ -91,6 +91,7 @@
 
   const authStore = useAuthStore();
   console.log(authStore.loggedIn);
+
 
 </script>
 

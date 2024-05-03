@@ -3,24 +3,30 @@ import { ref } from 'vue';
 
 
 interface AuthState {
-    loggedIn: boolean;
+  loggedIn: boolean;
+  UserName: Ref<string | null>;
 }
-
 /**
  * リロード時ログイン済みかどうかを判定する
  */
 const isDefaultLoggedIn = () => {
-    const accessToken = useCookie('accessToken', { secure: true, sameSite: 'strict' });
-    return accessToken.value !== null && accessToken.value !== '' && accessToken.value !== undefined;
+  const accessToken = useCookie('accessToken', { secure: true, sameSite: 'strict' });
+  return accessToken.value !== null && accessToken.value !== '' && accessToken.value !== undefined;
+}
+
+const getUserName = () => {
+  const accessToken = useCookie('accessToken', { secure: true, sameSite: 'strict' });
+  return accessToken;
 }
 
 export const useAuthStore = defineStore('auth', {
-    state: (): AuthState => ({
-      loggedIn: isDefaultLoggedIn(),
-    }),
-    actions: {
-      setLoginStatus(status: boolean) : void{
-        this.loggedIn = status;
-      }
-    },
+  state: (): AuthState => ({
+    loggedIn: isDefaultLoggedIn(),
+    UserName: getUserName(),
+  }),
+  actions: {
+    setLoginStatus(status: boolean) : void{
+      this.loggedIn = status;
+    }
+  },
 });
