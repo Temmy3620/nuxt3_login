@@ -11,6 +11,7 @@
                     
                     <v-text-field
                         v-model="name"
+                        :rules="nameRules"
                         color="primary"
                         label="Name"
                         variant="underlined"
@@ -73,7 +74,7 @@
   
 <script setup lang="ts">
     import { useAuthStore } from '~/store/auth';
-    import { emailRules, passwordRules } from '../../composables/validationRules'
+    import { nameRules, emailRules, passwordRules } from '../../composables/validationRules'
 
     const { name, email, password, handleRegistre, errorMessage } = useRegistre()
 
