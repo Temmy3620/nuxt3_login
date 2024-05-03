@@ -1,10 +1,9 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
-
 interface AuthState {
   loggedIn: boolean;
-  UserName: Ref<string | null>;
+  UserInfo: Ref<string | null>;
 }
 /**
  * リロード時ログイン済みかどうかを判定する
@@ -14,7 +13,8 @@ const isDefaultLoggedIn = () => {
   return accessToken.value !== null && accessToken.value !== '' && accessToken.value !== undefined;
 }
 
-const getUserName = () => {
+
+const getUserinfo = () => {
   const accessToken = useCookie('accessToken', { secure: true, sameSite: 'strict' });
   return accessToken;
 }
@@ -22,11 +22,18 @@ const getUserName = () => {
 export const useAuthStore = defineStore('auth', {
   state: (): AuthState => ({
     loggedIn: isDefaultLoggedIn(),
-    UserName: getUserName(),
+    UserInfo: getUserinfo(),
   }),
   actions: {
     setLoginStatus(status: boolean) : void{
       this.loggedIn = status;
+    },
+    logout(){
+      const router = useRouter();
+      const accessToken = useCookie('accessToken', { secure: true, sameSite: 'strict' });
+      accessToken.value = '';
+      this.loggedIn = false;
+      router.push('/auth/login');
     }
   },
 });

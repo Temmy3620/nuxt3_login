@@ -77,7 +77,7 @@
         </v-col>
         <v-col cols="2" class="d-flex align-end flex-column ms-auto">
             <Logout />
-            <a>{{ authStore.UserName.name }}</a>
+            <a>{{ authStore.UserInfo.name }}</a>
         </v-col>
     </v-row> 
     
