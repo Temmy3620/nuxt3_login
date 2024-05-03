@@ -22,8 +22,11 @@
 
 <script setup lang="ts">
   import { useLogin } from '../../composables/useLogin'
+  import { emailRules, passwordRules } from '../../composables/validationRules'
+  
   const { email, password, handleLogin, errorMessage } = useLogin()
-
+  
+  /*
   const emailRules = [
     (value) => {
       if (value) return true
@@ -46,4 +49,5 @@
       return 'パスワードは8文字以上である必要があります。'
     },
   ]
+  */
 </script>
