@@ -43,9 +43,9 @@ export const useLogin = (): UseLoginReturnType => {
             const errorData = await response.json();
             errorMessage.value = errorData.message;
             } else if (response.status >= 500) {
-                router.push('/error');
+                router.push('/auth/error');
             } else {
-                router.push('/error');
+                router.push('/auth/error');
             }
             return;
         }
@@ -60,7 +60,7 @@ export const useLogin = (): UseLoginReturnType => {
         refreshToken.value = data.refresh_token;
 
 
-        router.push('/users');
+        router.push('/dash/users');
         
         
     };

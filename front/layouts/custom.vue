@@ -8,7 +8,7 @@
                 prev-icon="mdi-arrow-left-bold-box-outline"
                 >
                 
-                    <NuxtLink to="/vuetify">
+                    <NuxtLink to="/dash/vuetify">
                         <v-tab
                         class="text-white"
                         >
@@ -16,7 +16,7 @@
                         </v-tab>
                     </NuxtLink>
                 
-                    <NuxtLink to="/todo">
+                    <NuxtLink to="/dash/todo">
                         <v-tab
                         class="text-white"
                         >
@@ -24,7 +24,7 @@
                         </v-tab>
                     </NuxtLink>
             
-                    <NuxtLink to="/price">
+                    <NuxtLink to="/dash/price">
                         <v-tab
                         class="text-white"
                         >
@@ -32,7 +32,7 @@
                         </v-tab>
                     </NuxtLink>
                                 
-                    <NuxtLink to="/test">
+                    <NuxtLink to="/dash/test">
                         <v-tab
                         class="text-white"
                         >
@@ -40,7 +40,7 @@
                         </v-tab>
                     </NuxtLink>
                 
-                    <NuxtLink to="/componentTest">
+                    <NuxtLink to="/dash/componentTest">
                         <v-tab
                         class="text-white"
                         >
@@ -48,7 +48,7 @@
                         </v-tab>
                     </NuxtLink>
             
-                    <NuxtLink to="/componentTest3">
+                    <NuxtLink to="/dash/componentTest3">
                         <v-tab
                         class="text-white"
                         >
@@ -56,7 +56,7 @@
                         </v-tab>
                     </NuxtLink>
                 
-                    <NuxtLink to="/users">
+                    <NuxtLink to="/dash/users">
                         <v-tab
                         class="text-white"
                         >
@@ -64,7 +64,7 @@
                         </v-tab>
                     </NuxtLink>
 
-                    <NuxtLink to="/componentTest2">
+                    <NuxtLink to="/dash/componentTest2">
                         <v-tab
                         class="text-white"
                         >

@@ -46,9 +46,9 @@ export const useRegistre = (): UseRegistreReturnType => {
             const errorData = await response.json();
             errorMessage.value = errorData.message;
             } else if (response.status >= 500) {
-                router.push('/error');
+                router.push('/auth/error');
             } else {
-                router.push('/error');
+                router.push('/auth/error');
             }
             return;
         }
@@ -63,7 +63,7 @@ export const useRegistre = (): UseRegistreReturnType => {
         refreshToken.value = data.refresh_token;
 
 
-        router.push('/users');
+        router.push('/dash/users');
         
         
     };
