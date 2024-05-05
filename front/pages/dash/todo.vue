@@ -8,6 +8,10 @@
   
   <script setup lang="ts">
   import { TestService } from '@/composables/test'
+
+  definePageMeta({
+    middleware: ['auth']
+  })
   
   const testService = new TestService();
   

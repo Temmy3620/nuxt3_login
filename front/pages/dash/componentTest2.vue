@@ -1,35 +1,49 @@
 <template>
-  <v-row justify="start" class="ma-2">
-    <v-col cols="8">
-      <v-sheet elevation="6">
-        <v-tabs
-          bg-color="indigo"
-          next-icon="mdi-arrow-right-bold-box-outline"
-          prev-icon="mdi-arrow-left-bold-box-outline"
-          show-arrows
-        >
-          <v-tab>
-            hsdcjs
-          </v-tab>
-          <v-tab>
-            hsdcjs2
-          </v-tab>
-        </v-tabs>
-      </v-sheet>
-    </v-col>
-  </v-row>
-  
+  <v-container>
+    <v-row>
+      <v-col
+        cols="5"
+      >
+      <v-date-input 
+        label="Start Date"
+        v-model="date.start"
+      ></v-date-input>
+      </v-col>
+      <v-col
+        cols="5"
+      >
+      <v-date-input 
+        label="End Date"
+        v-model="date.end"
+      ></v-date-input>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-btn
+        @click="setDate"
+      >
+        Button
+      </v-btn>
+    </v-row>
+  </v-container>
+
+
     
 </template>
 <script setup lang="ts">
-    const message = 'Component Test !!';
+  import { ref } from "vue"
 
-    definePageMeta({
-      middleware: ['auth']
-    })
+  definePageMeta({
+    middleware: ['auth']
+  })
 
-    console.log("--------------------------------");
-    console.log(message);
-    console.log("--------------------------------");
+  const date = ref({
+    start: null,
+    end: null,
+  })
 
+  function setDate(){
+    console.log(date.value)
+  }
+  
 </script>

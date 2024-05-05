@@ -68,7 +68,7 @@
                         <v-tab
                         class="text-white"
                         >
-                            tab
+                            calender
                         </v-tab>
                     </NuxtLink>
             

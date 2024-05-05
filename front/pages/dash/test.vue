@@ -35,6 +35,10 @@
 <script setup lang="ts">
     const message = 'Hello! TypeScript!';
 
+    definePageMeta({
+      middleware: ['auth']
+    })
+
     console.log("--------------------------------");
     console.log(message);
     console.log("--------------------------------");

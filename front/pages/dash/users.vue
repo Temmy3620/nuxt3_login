@@ -18,21 +18,21 @@
                     
                         <v-text-field
                             v-model="newItem.name"
+                            :rules="nameRules"
                             label="Name"
                             variant="outlined"
-                            required
                         ></v-text-field>
                         <v-text-field
                             v-model="newItem.email"
+                            :rules="emailRules"
                             label="Emal"
                             variant="outlined"
-                            required
                         ></v-text-field>
                         <v-text-field
                             v-model="newItem.password"
+                            :rules="passwordRules"
                             label="Password"
                             variant="outlined"
-                            required
                         ></v-text-field>
                         <v-btn type="submit" class="w-100">
                             Submit
@@ -79,6 +79,7 @@
 </template>
 
 <script setup lang="ts">
+    import { nameRules, emailRules, passwordRules } from '../../composables/validationRules'
     import { UserService } from '@/composables/user'
     import { ref } from 'vue'
     
