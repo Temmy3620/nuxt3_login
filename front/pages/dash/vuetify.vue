@@ -6,12 +6,16 @@
     </v-radio-group>
 </template>
 <script setup lang="ts">
-    const message = 'Hello! TypeScript!';
-    const bigNumber: bigint = 100n;
 
-    console.log("--------------------------------");
-    console.log(message);
-    console.log(bigNumber);
-    console.log("--------------------------------");
+  definePageMeta({
+    middleware: ['auth']
+  })
+  const message = 'Hello! TypeScript!';
+  const bigNumber: bigint = 100n;
+
+  console.log("--------------------------------");
+  console.log(message);
+  console.log(bigNumber);
+  console.log("--------------------------------");
 
 </script>

@@ -30,6 +30,10 @@
 <script setup lang="ts">
     const message = 'Component Test !!';
 
+    definePageMeta({
+      middleware: ['auth']
+    })
+
     console.log("--------------------------------");
     console.log(message);
     console.log("--------------------------------");

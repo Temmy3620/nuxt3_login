@@ -24,6 +24,11 @@
     
 </template>
 <script setup lang="ts">
+
+    definePageMeta({
+      middleware: ['auth']
+    })
+    
     const message = 'Component Test !!';
     const languages = [
       { title: 'English', value: 'en' },

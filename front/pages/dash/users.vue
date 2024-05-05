@@ -87,6 +87,10 @@
     import timezone from 'dayjs/plugin/timezone'
     dayjs.extend(utc)
     dayjs.extend(timezone)
+
+    definePageMeta({
+      middleware: ['auth']
+    })
   
     const userService = new UserService()
 

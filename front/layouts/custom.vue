@@ -1,5 +1,5 @@
 <template>
-    <v-row justify="start" v-if="authStore.loggedIn == true">
+    <v-row justify="start" v-if="authStore.loggedIn">
         <v-col cols="10">
             <v-sheet elevation="6">
                 <v-tabs
