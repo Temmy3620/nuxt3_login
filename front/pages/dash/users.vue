@@ -10,40 +10,70 @@
         </v-card-actions>
         </v-card>
     </v-dialog>
-    <v-container class="mt-10">
-        <v-row>
-            <v-col cols="3">
-                <div class="d-flex flex-column mt-15">
-                    <v-form @submit.prevent="addItem">
-                    
+    <v-dialog
+        v-model="dialog"
+        max-width="500px"
+    >
+        <template v-slot:activator="{ props }">
+            <v-container>
+                <v-row class="d-flex justify-end mr-5 mt-5">
+                    <v-btn
+                        color="primary"
+                        v-bind="props"
+                    >
+                        New Item
+                    </v-btn>
+                </v-row>
+            </v-container>
+        </template>
+        <v-card>
+            <v-card-title>
+              <span class="text-h5">New Item</span>
+            </v-card-title>
+            <v-container>
+                <v-form @submit.prevent="addItem">
+                    <div class="d-flex flex-column mt-5">
                         <v-text-field
                             v-model="newItem.name"
                             :rules="nameRules"
                             label="Name"
-                            variant="outlined"
+                            class="mb-5"
                         ></v-text-field>
                         <v-text-field
                             v-model="newItem.email"
                             :rules="emailRules"
                             label="Emal"
-                            variant="outlined"
+                            class="mb-5"
                         ></v-text-field>
                         <v-text-field
                             v-model="newItem.password"
                             :rules="passwordRules"
                             label="Password"
-                            variant="outlined"
+                            class="mb-5"
                         ></v-text-field>
-                        <v-btn type="submit" class="w-100">
-                            Submit
-                        </v-btn>
-
-                    </v-form>
-                    
-                </div>
-            </v-col>
-            <v-col cols="1"></v-col>
-            <v-col cols="8">
+                    </div>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                        color="blue-darken-1"
+                        variant="text"
+                        @click="close"
+                    >
+                        Cancel
+                    </v-btn>
+                    <v-btn
+                        type="submit"
+                        color="blue-darken-1"
+                        variant="text"
+                    >
+                        Save
+                    </v-btn>
+                </v-form>
+            </v-container>
+        </v-card>
+    </v-dialog>
+    <v-container>
+        <v-row>
+            <v-col cols="12">
                 <v-data-table
                     :items="items" 
                     :headers="[
@@ -58,18 +88,21 @@
                     {{ dayjs(value).tz('Asia/Tokyo').format('YYYY-MM-DD HH:mm:ss') }}
                 </template>
                 <template v-slot:item.actions="{ item }">
-                  <v-icon
-                    class="me-2"
-                    size="small"
-                  >
-                    mdi-pencil
-                  </v-icon>
-                  <v-icon
-                    size="small"
-                    @click="deleteItemConfirm(item)"
-                  >
-                    mdi-delete
-                  </v-icon>
+                    <div class="d-flex justify-end">
+                        <v-icon
+                          class="me-2"
+                          size="small"
+                        >
+                          mdi-pencil
+                        </v-icon>
+                        <v-icon
+                          size="small"
+                          @click="deleteItemConfirm(item)"
+                        >
+                          mdi-delete
+                        </v-icon>
+                    </div>
+                  
                 </template>
                 </v-data-table>
             </v-col>
@@ -120,8 +153,9 @@
         userService.putData(newItem.value).then(data => {
             items.value.unshift(data.data)
         })
-        
-        newItem.value = { name: '', email: '', password: '' }
+
+        dialog.value = false
+        //newItem.value = { name: '', email: '', password: '' }
 
     }
 
@@ -151,6 +185,10 @@
 
     function closeDelete(){
         dialogDelete.value = false
+    }
+
+    function close(){
+        dialog.value = false
     }
 
     
