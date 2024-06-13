@@ -71,6 +71,14 @@
                             calender
                         </v-tab>
                     </NuxtLink>
+
+                    <NuxtLink to="/dash/comfrom">
+                        <v-tab
+                        class="text-white"
+                        >
+                            comfrom
+                        </v-tab>
+                    </NuxtLink>
             
                 </v-tabs>
             </v-sheet>
